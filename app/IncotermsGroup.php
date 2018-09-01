@@ -21,7 +21,7 @@ class IncotermsGroup extends Model
     protected $fillable = [
         'alias','name','term_en','specification','available'
     ];
-
+    
     /**
      * Get the incoterms for the group.
      */
@@ -29,5 +29,5 @@ class IncotermsGroup extends Model
     {
         return $this->hasMany('App\Incoterm', 'group_id', 'id');
     }
-    
+
 }

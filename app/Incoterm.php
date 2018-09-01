@@ -21,7 +21,8 @@ class Incoterm extends Model
     protected $fillable = [
         'group_id',
         'alias','abbr',
-        'term_en','specification','type_of_transport',
+        'term_en','specification',
+        'type_of_transport',
         'available',
     ];
 

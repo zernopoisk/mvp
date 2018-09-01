@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('pages.home');
 });
+
+// Detect max size of attributes.
+Route::prefix('sdetect')->group(function () {
+    Route::get('incoterms/groups', 'SizeDetectController@incotermsGroups');
+    Route::get('incoterms', 'SizeDetectController@incoterms');
+});
