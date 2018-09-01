@@ -7,53 +7,78 @@ use Illuminate\Http\Request;
 class SizeDetectController extends Controller
 {
     /**
-     * Incoterms
+     * Payment Forms.
      */
-    public function incoterms()
+    public function paymentForms()
     {
-        // Researched array item
-        $arr = config('dict.incoterms');
-        
-        // Attributes max size display
-        echo sprintf("<strong><u>%s</u></strong><br>", __FUNCTION__);
-        echo sprintf("%s: <b>%d</b><br>", "group", $this->_maxSizeDetect($arr, "group"));
-        echo sprintf("%s: <b>%d</b><br>", "alias", $this->_maxSizeDetect($arr, "alias"));
-        echo sprintf("%s: <b>%d</b><br>", "abbr", $this->_maxSizeDetect($arr, "abbr"));
-        echo sprintf("%s: <b>%d</b><br>", "term_en", $this->_maxSizeDetect($arr, "term_en"));
-        echo sprintf("%s: <b>%d</b><br>", "specification", $this->_maxSizeDetect($arr, "specification"));
-        echo sprintf("%s: <b>%d</b><br>", "type_of_transport", $this->_maxSizeDetect($arr, "type_of_transport"));
+        $this->_displayAttrMaxValues(
+            $this->_maxSizesDetect(config('dict.payment.forms'), ['alias', 'name', 'translit']), 
+            'Payment Forms'
+        );
     }
 
     /**
-     * Incoterms Groups
+     * Incoterms Groups.
      */
     public function incotermsGroups()
     {
-        // Researched array item
-        $arr = config('dict.incoterms_groups');
-        
-        // Attributes max size display
-        echo sprintf("<strong><u>%s</u></strong><br>", __FUNCTION__);
-        echo sprintf("%s: <b>%d</b><br>", "alias", $this->_maxSizeDetect($arr, "alias"));
-        echo sprintf("%s: <b>%d</b><br>", "name", $this->_maxSizeDetect($arr, "name"));
-        echo sprintf("%s: <b>%d</b><br>", "term_en", $this->_maxSizeDetect($arr, "term_en"));
-        echo sprintf("%s: <b>%d</b><br>", "specification", $this->_maxSizeDetect($arr, "specification"));
+        $this->_displayAttrMaxValues(
+            $this->_maxSizesDetect(config('dict.incoterms_groups'), ['alias','name','term_en','specification']), 
+            'Incoterms Groups'
+        );
+    }
+
+    /**
+     * Incoterms.
+     */
+    public function incoterms()
+    {
+        $this->_displayAttrMaxValues(
+            $this->_maxSizesDetect(config('dict.incoterms'), ['group','alias','abbr','term_en','specification','type_of_transport']),
+            'Incoterms'
+        );
+    }
+
+    /**
+     * Display attributes max values for the specified array.
+     */
+    private function _displayAttrMaxValues(array $a, $entityName)
+    {
+        if (count ($a) > 0) {
+            echo sprintf("<strong><u>%s</u></strong><br>", $entityName);
+            foreach ($a as $key => $val) {
+                echo sprintf("%s: <b>%d</b><br>", $key, $val);
+            }
+        } else {
+            echo "Sorry: empty result array...";
+        }
     }
     
     /**
-     * Detects max size of array attributes.
-     * It's needed to create fields with appropriate size by the Schema builder facade.
+     * Detects max size of array attributes for the specified attributes.
+     * It's needed to create fields in the database with appropriate size.
      */
-    private function _maxSizeDetect(array $a, $attrName)
+    private function _maxSizesDetect(array $a, array $attributes)
     {
         $length = [];
 
         if (count ($a) > 0) {
+            // Prepare elements for analyze
             foreach ($a as $item) {
-                $length[] = mb_strlen($item[$attrName]);
+                foreach ($item as $key => $value) {
+                    if (in_array($key, $attributes, true)) {
+                        $length[$key][] = mb_strlen($value);
+                    }
+                }
             }
         }
 
-        return max($length);
+        // Search max value for each element
+        foreach ($length as $key => $values) {
+            $length[$key] = max($values);
+        }
+
+        return $length;
     }
+
 }
