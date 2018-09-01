@@ -24,4 +24,7 @@ Route::prefix('sdetect')->group(function () {
     // Payment
     Route::get('payment/forms', 'SizeDetectController@paymentForms');
     Route::get('payment/methods', 'SizeDetectController@paymentMethods');
+
+    // Pickup
+    Route::get('pickup', 'SizeDetectController@pickup');
 });

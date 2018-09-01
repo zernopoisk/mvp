@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 class SizeDetectController extends Controller
 {
     /**
+     * Pickup.
+     */
+    public function pickup()
+    {
+        $this->_displayAttrMaxValues(
+            $this->_maxSizesDetect(config('dict.pickup'), ['alias','name','translit']), 
+            'Pickup'
+        );
+    }
+
+    /**
      * Payment Forms.
      */
     public function paymentForms()

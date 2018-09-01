@@ -18,7 +18,7 @@ class CreatePaymentFormsTable extends Migration
 
             $table->string('alias', 8)->comment('for the system use, only');
             $table->char('name', 16)->comment('payment form name on russian (for human eyes)');
-            $table->char('translit', 16)->comment('on english, for SEO, form field values and so on...');
+            $table->char('translit', 16)->comment('for SEO goals, form field values and so on...');
 
             $table->timestamps();
         });
