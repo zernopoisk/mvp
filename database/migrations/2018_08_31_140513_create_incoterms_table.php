@@ -17,7 +17,7 @@ class CreateIncotermsTable extends Migration
             $table->tinyIncrements('id')->comment('PK');
             $table->unsignedTinyInteger('group_id')->comment('FK');
 
-            $table->char('alias', 3)->comment('for the system use only');
+            $table->char('alias', 3)->comment('for the system use, only');
             $table->char('abbr', 3)->comment('abbreviation on english (for human eyes)');
             $table->string('term_en', 32)->comment('term on english (for human eyes)');
             $table->mediumText('specification')->comment('specification on russian (for human eyes)');

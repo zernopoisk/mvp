@@ -18,6 +18,17 @@ class SizeDetectController extends Controller
     }
 
     /**
+     * Payment Methods.
+     */
+    public function paymentMethods()
+    {
+        $this->_displayAttrMaxValues(
+            $this->_maxSizesDetect(config('dict.payment.methods'), ['alias','name','translit']), 
+            'Payment Methods'
+        );
+    }
+
+    /**
      * Incoterms Groups.
      */
     public function incotermsGroups()

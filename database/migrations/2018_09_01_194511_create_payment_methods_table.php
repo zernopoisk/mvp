@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIncotermsGroupsTable extends Migration
+class CreatePaymentMethodsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateIncotermsGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('incoterms_groups', function (Blueprint $table) {
+        Schema::create('payment_methods', function (Blueprint $table) {
             $table->tinyIncrements('id')->comment('PK');
 
             $table->string('alias', 32)->comment('for the system use, only');
-            $table->char('name', 1)->comment('group identifier character');
-            $table->string('term_en', 32)->comment('group name, - term on english (for human eyes)');
-            $table->mediumText('specification')->comment('specification on russian (for human eyes)');
+            $table->char('name', 32)->comment('payment method name on russian (for human eyes)');
+            $table->char('translit', 32)->comment('on english, for SEO, form field values and so on...');
             $table->enum('available', ['yes','no'])->default('no')->comment('display on the site');
 
             $table->timestamps();
@@ -33,6 +32,6 @@ class CreateIncotermsGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('incoterms_groups');
+        Schema::dropIfExists('payment_methods');
     }
 }
