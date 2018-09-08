@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 
 class SizeDetectController extends Controller
 {
+    public function sellerTypes()
+    {
+        $this->_displayAttrMaxValues(
+            $this->_maxSizesDetect(config('dict.sellertypes'), ['alias','name','translit']), 
+            'Seller Types'
+        );
+    }
+
     /**
      * Pickup.
      */

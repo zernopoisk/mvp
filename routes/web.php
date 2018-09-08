@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 // Detect max size of attributes.
-Route::prefix('sdetect')->group(function () {
+Route::prefix('sizedetect')->group(function () {
     // Incoterms
     Route::get('incoterms/groups', 'SizeDetectController@incotermsGroups');
     Route::get('incoterms', 'SizeDetectController@incoterms');
@@ -27,4 +27,7 @@ Route::prefix('sdetect')->group(function () {
 
     // Pickup
     Route::get('pickup', 'SizeDetectController@pickup');
+
+    // Seller Types
+    Route::get('sellertypes', 'SizeDetectController@sellerTypes');
 });

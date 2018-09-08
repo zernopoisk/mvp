@@ -6,22 +6,32 @@ return [
      * Типы продавцов.
      */
 
-    "private"=>[
-        "alias"=>"private",
-        "name"=>"частное",
-        "translit"=>"chastnoye",
-    ],
-
     "farming"=>[
         "alias"=>"farming",
         "name"=>"фермерское хозяйство",
         "translit"=>"fermerskoye_khozyaystvo",
+        "available"=>"yes",
     ],
 
-    "company"=>[
-        "alias"=>"company",
-        "name"=>"компания",
-        "translit"=>"kompaniya",
+    "trader"=>[
+        "alias"=>"trader",
+        "name"=>"зернотрейдер",
+        "translit"=>"treyder",
+        "available"=>"yes",
     ],
 
+    "dealer"=>[
+        "alias"=>"dealer",
+        "name"=>"посредник",
+        "translit"=>"posrednik",
+        "available"=>"no",
+    ],
+
+    "private"=>[
+        "alias"=>"private",
+        "name"=>"частное лицо",
+        "translit"=>"chastnoye",
+        "available"=>"no",
+    ],
+    
 ];
