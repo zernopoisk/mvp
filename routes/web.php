@@ -33,4 +33,7 @@ Route::prefix('sizedetect')->group(function () {
 
     // Offers Statuses
     Route::get('offers/statuses', 'SizeDetectController@offersStatuses');
+
+    // Class of Cereals
+    Route::get('classiness', 'SizeDetectController@classiness');
 });

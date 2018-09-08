@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             SellerTypesTableSeeder::class,
 
             OffersStatusesTableSeeder::class,
+
+            ClassinessTableSeeder::class,
         ]);
     }
 }

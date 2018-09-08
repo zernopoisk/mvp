@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 class SizeDetectController extends Controller
 {
     /**
+     * Class of Cereals.
+     */
+    public function classiness()
+    {
+        $this->_displayAttrMaxValues(
+            $this->_maxSizesDetect(config('dict.classiness'), ['alias','name','translit']), 
+            'Classiness'
+        );
+    }
+
+    /**
      * Offers Statuses.
      */
     public function offersStatuses()
