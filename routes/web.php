@@ -30,4 +30,7 @@ Route::prefix('sizedetect')->group(function () {
 
     // Seller Types
     Route::get('sellertypes', 'SizeDetectController@sellerTypes');
+
+    // Offers Statuses
+    Route::get('offers/statuses', 'SizeDetectController@offersStatuses');
 });

@@ -6,6 +6,20 @@ use Illuminate\Http\Request;
 
 class SizeDetectController extends Controller
 {
+    /**
+     * Offers Statuses.
+     */
+    public function offersStatuses()
+    {
+        $this->_displayAttrMaxValues(
+            $this->_maxSizesDetect(config('dict.offers_statuses'), ['alias','name','translit','sense']), 
+            'Offers Statuses'
+        );
+    }
+
+    /**
+     * Seller Types.
+     */
     public function sellerTypes()
     {
         $this->_displayAttrMaxValues(

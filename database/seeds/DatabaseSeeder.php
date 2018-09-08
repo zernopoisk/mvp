@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             PickupTableSeeder::class,
 
             SellerTypesTableSeeder::class,
+
+            OffersStatusesTableSeeder::class,
         ]);
     }
 }
