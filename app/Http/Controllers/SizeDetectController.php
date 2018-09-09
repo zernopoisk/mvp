@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 class SizeDetectController extends Controller
 {
     /**
+     * Location Regions.
+     */
+    public function locationRegions()
+    {
+        $this->_displayAttrMaxValues(
+            $this->_maxSizesDetect(config('dict.location_regions'), ['alias','name','translit','type']), 
+            'Location Regions'
+        );
+    }
+
+    /**
      * Class of Cereals.
      */
     public function classiness()

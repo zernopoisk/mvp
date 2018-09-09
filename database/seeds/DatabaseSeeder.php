@@ -14,17 +14,13 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // UsersTableSeeder::class
             CategoriesTableSeeder::class,
-            
             IncotermsTablesSeeder::class,
             PaymentTablesSeeder::class,
-
             PickupTableSeeder::class,
-
             SellerTypesTableSeeder::class,
-
             OffersStatusesTableSeeder::class,
-
             ClassinessTableSeeder::class,
+            LocationRegionsTableSeeder::class,
         ]);
     }
 }

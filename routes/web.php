@@ -20,20 +20,17 @@ Route::prefix('sizedetect')->group(function () {
     // Incoterms
     Route::get('incoterms/groups', 'SizeDetectController@incotermsGroups');
     Route::get('incoterms', 'SizeDetectController@incoterms');
-
     // Payment
     Route::get('payment/forms', 'SizeDetectController@paymentForms');
     Route::get('payment/methods', 'SizeDetectController@paymentMethods');
-
     // Pickup
     Route::get('pickup', 'SizeDetectController@pickup');
-
     // Seller Types
     Route::get('sellertypes', 'SizeDetectController@sellerTypes');
-
     // Offers Statuses
     Route::get('offers/statuses', 'SizeDetectController@offersStatuses');
-
     // Class of Cereals
     Route::get('classiness', 'SizeDetectController@classiness');
+    // Location Regions
+    Route::get('location/regions', 'SizeDetectController@locationRegions');
 });
