@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             SellerTypesTableSeeder::class,
             OffersStatusesTableSeeder::class,
             ClassinessTableSeeder::class,
-            LocationRegionsTableSeeder::class,
+            LocationTablesSeeder::class,
         ]);
     }
 }

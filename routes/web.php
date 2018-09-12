@@ -33,4 +33,5 @@ Route::prefix('sizedetect')->group(function () {
     Route::get('classiness', 'SizeDetectController@classiness');
     // Location Regions
     Route::get('location/regions', 'SizeDetectController@locationRegions');
+    Route::get('location/regions/centers', 'SizeDetectController@locationRegionsCenters');
 });
