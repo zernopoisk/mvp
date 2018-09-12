@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 class SizeDetectController extends Controller
 {
     /**
+     * Location Regions Districts.
+     */
+    public function locationRegionsDistricts()
+    {
+        $this->_displayAttrMaxValues(
+            $this->_maxSizesDetect(config('dict.location_regions_districts'), ['alias','name','translit']), 
+            'Location Regions Districts'
+        );
+    }
+
+    /**
      * Location Regions Centers.
      */
     public function locationRegionsCenters()

@@ -31,4 +31,12 @@ class LocationRegion extends Model
         return $this->hasOne('App\LocationRegionCenter', 'region_id');
     }
 
+    /**
+     * Get the districts for the region.
+     */
+    public function districts()
+    {
+        return $this->hasMany('App\LocationRegionDistrict', 'region_id');
+    }
+
 }
