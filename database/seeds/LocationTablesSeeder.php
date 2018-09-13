@@ -15,6 +15,11 @@ class LocationTablesSeeder extends Seeder
     {
         $Vinnytsia = App\LocationRegion::create(["alias"=>"Vinnytsia","name"=>"Винницкая","translit"=>"Vinnitskaya","type"=>"region","available"=>"yes"]);
         $Vinnytsia->administrativeCenter()->create(["alias"=>"Vinnitsa","name"=>"Винница","translit"=>"Vinnitsa"]);
+        $Vinnytsia->districts()->createMany([
+            ['alias'=>'Barsky','name'=>'Барский','translit'=>'Barskiy','available'=>'yes'],
+            ['alias'=>'Bershad','name'=>'Бершадский','translit'=>'Bershadskij','available'=>'yes'],
+            ['alias'=>'Vinnitsa','name'=>'Винницкий','translit'=>'Vinnitskiy','available'=>'yes'],
+        ]);
 
         $Odessa = App\LocationRegion::create(["alias"=>"Odessa","name"=>"Одесская","translit"=>"Odesskaya","type"=>"region","available"=>"yes"]);
         $Odessa->administrativeCenter()->create(["alias"=>"Odessa","name"=>"Одесса","translit"=>"Odessa"]);
@@ -84,6 +89,6 @@ class LocationTablesSeeder extends Seeder
 
         $Chernivtsi = App\LocationRegion::create(["alias"=>"Chernivtsi","name"=>"Черновицкая","translit"=>"Chernovitskaya","type"=>"region","available"=>"yes"]);
         $Chernivtsi->administrativeCenter()->create(["alias"=>"Chernivtsi","name"=>"Черновцы","translit"=>"Chernovtsy"]);
-
     }
+    
 }

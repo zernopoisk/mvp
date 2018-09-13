@@ -21,6 +21,8 @@ class CreateLocationRegionsDistrictsTable extends Migration
             $table->string('name', 32)->comment('district name on russian (for human eyes)');
             $table->string('translit', 32)->comment('for SEO goals, form field values and so on...');
 
+            $table->enum('available', ['yes','no'])->default('no')->comment('display on the site');
+
             $table->timestamps();
         });
     }
